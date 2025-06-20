@@ -13,13 +13,12 @@ class HoiVien
     public: 
         void input(); 
         void inputHours(); 
-        virtual int getPhiDichVu(); 
+        virtual int getPhiDichVu() {}; 
         int getHours() {
             return this->hours; 
         }
-        virtual double averageMoreBooks() {
-
-        }
+        virtual double averageMoreBooks() {}; 
+        void output(); 
 }; 
 class Prenium : public HoiVien 
 {
@@ -59,12 +58,16 @@ class Library
 {
     protected: 
         vector<HoiVien*> a; 
-        int n; 
+        int n;  
+        int moreBooksBasic = 0; 
+        int moreBooksPrenium = 0; 
+        int moreBooksUuDai = 0; 
     public: 
         void input(); 
         int tinhPhiDichVu(); 
         HoiVien* maxHours(); 
-        double averageMoreBooks(); 
+        void countTotalAverageBooks(); 
+        double averageMoreBooks(int type); 
         int countBasic(); 
         int countUuDai(); 
 }; 
